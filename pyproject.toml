@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "phi-deterministic-rules"
+version = "1.0.0"
+description = "Deterministic regex rules for the 19 PHI labels used in the Biogen de-identification deliverable, derived from 470M model-redacted spans"
+readme = "README.md"
+requires-python = ">=3.9"
+license = {text = "Internal use only"}
+authors = [{name = "Gitartha Sarma", email = "gitartha.sarma@neurodiscovery.ai"}]
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=8"]
+
+[project.scripts]
+phi-rules = "phi_rules.__main__:main"
+
+[tool.setuptools.packages.find]
+include = ["phi_rules*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
