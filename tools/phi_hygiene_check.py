@@ -14,8 +14,10 @@ import subprocess
 import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-FORBIDDEN = ["span_census", "lexicon_", "eval_src", "spans-0", "s3_pn", "biogen_deliverable_phi", "custom_id", "ndai-neuro-audit",
-             "output_b2", "archive_ocr_run1"]
+# data-shaped fragments from the pipeline; directory NAMES (span_census, the deliverable repo) are allowed because the
+# docs must say where the lexicons live for this very check
+FORBIDDEN = ["lexicon_person", "lexicon_doctor", "lexicon_signature", "lexicon_hospital", "eval_src", "spans-0", "s3_pn",
+             "custom_id", "ndai-neuro-audit", "output_b2", "archive_ocr_run1", "deidmeta-"]
 STOP = set("""the and for with from that this name date phone patient hospital medical center clinic health system group
 associates family practice general sample example anytown test admin system user unknown none null true false main street
 suite road avenue city state north south east west lake hill hills creek river park view point spring springs valley
@@ -28,7 +30,7 @@ protocol subject participant serial scanner device model study site zip code pos
 insurance member policy account chart record encounter visit order specimen accession claim license report document
 identified identifier amount balance copay total fee charge payment cost neurology oncology cardiology imaging
 radiology surgery internal medicine urgent care family medicine emergency first last block class out outpatient inpatient biogen deliverable medicare medicaid tricare
-jane doe marie wilson guardian primary brain infusion interface pipeline hooks ground little short target county office
+jane doe marie wilson guardian primary brain infusion interface pipeline hooks ground little short target county office claude
 admission allergy problem observation regional institute laboratories university physicians cancer court parkway
 social security department of neurology ms clinic main st""".split())
 # multi-word synthetic / generic grams (the split() above only yields single words)

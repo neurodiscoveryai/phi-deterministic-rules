@@ -1194,4 +1194,5 @@ phi_rules/          _blocks.py engine.py dates.py identifiers.py contact.py amou
 tests/              test_fixtures.py test_engine.py test_readme_sync.py
 docs/               evaluation.md policy.md
 tools/              render_readme.py phi_hygiene_check.py
+CLAUDE.md           rules for working on this repo (also read by Claude Code)      ONBOARDING.md   start here
 ```
